@@ -359,7 +359,7 @@ class RLHFTrainer:
         # ensure on correct device
         if normalized_rewards.device != self.device:
             normalized_rewards = normalized_rewards.to(self.device)
-        if value_est.device != device:
+        if value_est.device != self.device:
             value_est.to(self.device)
 
         advantages = compute_advantages(value_est, normalized_rewards, self.prefix_len)
